@@ -1,3 +1,5 @@
+# Author : Laura van Aalst
+
 rm(list = ls())
 # install.packages("shiny")
 # install.packages("shinyjs")
@@ -16,8 +18,8 @@ ui <- fluidPage(
     ),
   
   mainPanel(
-    tableOutput(outputId = 'result'),
-    shinyjs::hidden(downloadButton('download_table', 'Download table'))
+    shinyjs::hidden(downloadButton('download_table', 'Download table')),
+    tableOutput(outputId = 'result')
     )
   )
 
@@ -61,8 +63,8 @@ server <- function(input, output) {
   output$result <- renderTable({results()})
   
   output$download_table <- downloadHandler(
-    filename = function(){paste("lecture-seats-sampler", Sys.Date(), ".csv", sep="")},
-    content = function(file){write.csv(results(), file, row.names = FALSE)},
+    filename = function(){paste("lecture-seats-sampler", Sys.Date(), ".xlsx", sep="")},
+    content = function(file){writexl::write_xlsx(results(), file)},
     contentType = "text/csv")
   
   observeEvent(input$submit_button, {
