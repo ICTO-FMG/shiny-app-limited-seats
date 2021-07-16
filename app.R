@@ -36,25 +36,31 @@ server <- function(input, output) {
     if(N_students > N_spots) {
       
       sampled_students <- sample(students_vector, size = N_spots, replace = F)
+      df_results <- as.data.frame(matrix(sampled_students, ncol = input$N_lectures, nrow = input$N_seats))
       
-      } else {
+      } else if (N_students < input$N_seats) { 
         
-        N_visits_every_stud <- N_spots %/% N_students # number of times every student may come
-        remaining_spots <- N_spots %% N_students # remaining number of spots to sample for
+        df_results <- as.data.frame(matrix(students_vector, ncol = input$N_lectures, nrow = N_students))
         
-        remaining_spots_sample <- sample(students_vector, size = remaining_spots, replace = F)
-        sampled_students <- c(rep(students_vector, times= N_visits_every_stud), remaining_spots_sample)
-        
-        while(anyDuplicated(tail(sampled_students, input$N_seats)) != 0) {
+        } else {
           
+          N_visits_every_stud <- N_spots %/% N_students # number of times every student may come
+          remaining_spots <- N_spots %% N_students # remaining number of spots to sample for
+        
           remaining_spots_sample <- sample(students_vector, size = remaining_spots, replace = F)
           sampled_students <- c(rep(students_vector, times= N_visits_every_stud), remaining_spots_sample)
           
-        } # if last lecture contains duplicates, take a new sample
-        
-        }
+          while(anyDuplicated(tail(sampled_students, input$N_seats)) != 0) {
+            
+            remaining_spots_sample <- sample(students_vector, size = remaining_spots, replace = F)
+            sampled_students <- c(rep(students_vector, times= N_visits_every_stud), remaining_spots_sample)
+            
+          } # if last lecture contains duplicates, take a new sample
+          
+          df_results <- as.data.frame(matrix(sampled_students, ncol = input$N_lectures, nrow = input$N_seats))
+          
+          }
     
-    df_results <- as.data.frame(matrix(sampled_students, ncol = input$N_lectures, nrow = input$N_seats))
     colnames(df_results) <- paste0("Lecture ", 1:input$N_lectures)
     df_results
 
