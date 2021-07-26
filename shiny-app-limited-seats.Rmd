@@ -13,7 +13,7 @@ library(flexdashboard)
 library(shinyjs)
 ```
 
-Column {data-width=250 .sidebar}
+Column {.sidebar}
 -----------------------------------------------------------------------
 
 #### Inputs:
@@ -26,7 +26,7 @@ numericInput(inputId = 'N_seats', 'Choose the number of available seats per lect
 actionButton(inputId = 'submit_button', 'GO')
 ```
 
-Column {data-width=450}
+Column {data-width=700}
 -----------------------------------------------------------------------
 
 ### Instruction
@@ -91,17 +91,21 @@ students <- eventReactive(input$submit_button, {(input$student_data)})
   })
 ```
 
+Column {data-width=300 .value-box}
+-----------------------------------------------------------------------
+
 ### N lectures {.value-box}
 
 ```{r, echo=FALSE}
-# input$N_lectures
-
-# N_lectures <- ifelse(!N_lectures, 0, N_lectures}
-
-
-
 renderValueBox({
 valueBox(as.numeric(input$N_lectures), icon = "fa-school", caption = "N Lectures" )
 })
+```
 
+### N Seats {.value-box}
+
+```{r, echo=FALSE}
+renderValueBox({
+valueBox(as.numeric(input$N_seats), icon = "fa-chair", caption = "N Seats", color = "orange")
+})
 ```
