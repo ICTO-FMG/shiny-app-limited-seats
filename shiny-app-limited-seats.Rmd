@@ -10,12 +10,14 @@ library(flexdashboard)
 library(shinyjs)
 ```
 
-Column {data-width=250}
+Column {data-width=250 .sidebar}
 -----------------------------------------------------------------------
+
+#### Inputs:
 
 ```{r}
 useShinyjs(rmd = TRUE)
-textAreaInput(inputId = "student_data", "Paste studentnumbers below each other", height = "100px")
+textAreaInput(inputId = "student_data", "Paste studentnumbers below each other", height = "100px", placeholder = "1234\n2345\n3456")
 numericInput(inputId = 'N_lectures', 'Choose the number of lectures', 1, min = 1)
 numericInput(inputId = 'N_seats', 'Choose the number of available seats per lecture', 1, min = 1)
 actionButton(inputId = 'submit_button', 'GO')
@@ -23,6 +25,10 @@ actionButton(inputId = 'submit_button', 'GO')
 
 Column {data-width=450}
 -----------------------------------------------------------------------
+
+### Instruction
+
+Tekst for instruction
 
 ### Output table
 
