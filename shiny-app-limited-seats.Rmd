@@ -31,7 +31,9 @@ Column {data-width=700}
 
 ### Instruction
 
-Tekst for instruction
+Use the Microsoft forms template below to have students register for on campus lectures prior to the sart of your cours.
+
+Paste all student numbers in the box to the right, indicate number of lectures for your cours and the number of available seats, and hit go.
 
 ```{r}
 shinyjs::hidden(downloadButton('download_table', 'Download table'))
