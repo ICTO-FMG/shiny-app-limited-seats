@@ -35,6 +35,27 @@ Use the Microsoft forms template below to have students register for on campus l
 
 Paste all student numbers in the box to the right, indicate number of lectures for your cours and the number of available seats, and hit go.
 
+Column {data-width=300}
+-----------------------------------------------------------------------
+
+### N lectures {.value-box}
+
+```{r, echo=FALSE}
+renderValueBox({
+valueBox(as.numeric(input$N_lectures), icon = "fa-school", caption = "N Lectures" )
+})
+```
+
+### N Seats {.value-box}
+
+```{r, echo=FALSE}
+renderValueBox({
+valueBox(as.numeric(input$N_seats), icon = "fa-chair", caption = "N Seats", color = "orange")
+})
+```
+
+### Download {data-height=200}
+
 ```{r}
 shinyjs::hidden(downloadButton('download_table', 'Download table'))
 tableOutput(outputId = 'result')
@@ -91,23 +112,4 @@ students <- eventReactive(input$submit_button, {(input$student_data)})
       shinyjs::hide("download_table")}
     else {shinyjs::show("download_table")}
   })
-```
-
-Column {data-width=300 .value-box}
------------------------------------------------------------------------
-
-### N lectures {.value-box}
-
-```{r, echo=FALSE}
-renderValueBox({
-valueBox(as.numeric(input$N_lectures), icon = "fa-school", caption = "N Lectures" )
-})
-```
-
-### N Seats {.value-box}
-
-```{r, echo=FALSE}
-renderValueBox({
-valueBox(as.numeric(input$N_seats), icon = "fa-chair", caption = "N Seats", color = "orange")
-})
 ```
