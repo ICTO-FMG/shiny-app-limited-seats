@@ -54,7 +54,9 @@ valueBox(as.numeric(input$N_seats), icon = "fa-chair", caption = "N Seats", colo
 })
 ```
 
-### Download {data-height=200}
+### Download
+
+When ready, an excel file can be downloaded by clicking on the button below.
 
 ```{r}
 shinyjs::hidden(downloadButton('download_table', 'Download table'))
