@@ -1,7 +1,10 @@
 ---
 title: "Randomly select students for lectures with limited seats"
 output: 
-  flexdashboard::flex_dashboard
+  flexdashboard::flex_dashboard:
+    css: "style.css"
+    source_code: "https://github.com/ICTO-FMG/shiny-app-limited-seats"
+    social: [ "twitter", "facebook", "linkedin" ]
 runtime: shiny
 ---
 

@@ -1,0 +1,8 @@
+.container-fluid {
+  background-color: #BC0031;
+}
+
+.chart-stage .shiny-bound-output {
+width: 200px !important;
+height: 40px !important;
+}
