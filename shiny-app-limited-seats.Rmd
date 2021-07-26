@@ -31,9 +31,13 @@ Column {data-width=700}
 
 ### Instruction
 
-Use the Microsoft forms template below to have students register for on campus lectures prior to the sart of your cours.
+Use the Microsoft forms template below to have students register for on campus lectures prior to the start of your course. Just hit the duplicate button on the top right to use it for yourself.
 
-Paste all student numbers in the box to the right, indicate number of lectures for your cours and the number of available seats, and hit go.
+> [MS forms template]( https://forms.office.com/Pages/ShareFormPage.aspx?id=zcrxoIxhA0S5RXb7PWh05WYE6t316eFCnfdGp1GENPBURUowT1U4MFczOEJZWDhINVpKWFBJNlczMC4u&sharetoken=EG3pTHmtlWdskAT36OYf)
+
+When you have collected all student numbers for those who want to attend on campus lectures, just paste all student numbers into the box on the right, indicate the number of lectures for your cours and the number of available seats per lecture, and hit go.
+
+A download button will apear here to the right. Just download the excel file and use the student numbers per lecture to inform your students using BCC in outlook.
 
 Column {data-width=300}
 -----------------------------------------------------------------------
