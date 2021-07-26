@@ -79,7 +79,7 @@ students <- eventReactive(input$submit_button, {(input$student_data)})
     
   })
   
-  output$result <- renderTable({results()})
+ # output$result <- renderTable({results()})
   
   output$download_table <- downloadHandler(
     filename = function(){paste("lecture-seats-sampler", Sys.Date(), ".xlsx", sep="")},
@@ -93,4 +93,17 @@ students <- eventReactive(input$submit_button, {(input$student_data)})
   })
 ```
 
+### N lectures {.value-box}
 
+```{r, echo=FALSE}
+# input$N_lectures
+
+# N_lectures <- ifelse(!N_lectures, 0, N_lectures}
+
+
+
+renderValueBox({
+valueBox(as.numeric(input$N_lectures), icon = "fa-school", caption = "N Lectures" )
+})
+
+```
