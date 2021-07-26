@@ -33,8 +33,6 @@ Column {data-width=450}
 
 Tekst for instruction
 
-### Output table
-
 ```{r}
 shinyjs::hidden(downloadButton('download_table', 'Download table'))
 tableOutput(outputId = 'result')
