@@ -6,3 +6,8 @@
 width: 200px !important;
 height: 40px !important;
 }
+
+.navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus {
+color: #1f1d21;
+background-color: #DCDDDE;
+}
