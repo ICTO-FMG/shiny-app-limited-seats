@@ -11,6 +11,18 @@ color: #1f1d21;
 background-color: #DCDDDE;
 }
 
-.download:before {
-  content: ""
+.icon::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Step 2: Reference Individual Icons */
+.download::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  padding-right: 5px;
+  content: "\f019 ";
 }
