@@ -2,10 +2,6 @@
   background-color: #BC0031;
 }
 
-.chart-stage .shiny-bound-output {
-height: 40px !important;
-}
-
 .navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus {
 color: #1f1d21;
 background-color: #DCDDDE;
@@ -25,4 +21,11 @@ background-color: #DCDDDE;
   font-weight: 900;
   padding-right: 5px;
   content: "\f019 ";
+}
+
+.special:before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  padding-right: 5px;
+  content: "\1f517 ";
 }
