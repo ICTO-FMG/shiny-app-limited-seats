@@ -63,7 +63,7 @@ valueBox(as.numeric(input$N_seats), icon = "fa-chair", caption = "N Seats", colo
 When ready, an excel file can be downloaded by clicking on the button below.
 
 ```{r}
-shinyjs::hidden(downloadLink('download_table', 'Download table'))
+shinyjs::hidden(downloadLink('download_table', 'Download table', class="btn btn-default"))
 tableOutput(outputId = 'result')
 students <- eventReactive(input$submit_button, {(input$student_data)})
   
