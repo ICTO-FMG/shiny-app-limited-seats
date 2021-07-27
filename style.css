@@ -10,3 +10,7 @@ height: 40px !important;
 color: #1f1d21;
 background-color: #DCDDDE;
 }
+
+.download:before {
+  content: ""
+}

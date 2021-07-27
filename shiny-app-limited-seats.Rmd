@@ -35,9 +35,9 @@ Use the Microsoft forms template below to have students register for on campus l
 
 > [MS forms template]( https://forms.office.com/Pages/ShareFormPage.aspx?id=zcrxoIxhA0S5RXb7PWh05WYE6t316eFCnfdGp1GENPBURUowT1U4MFczOEJZWDhINVpKWFBJNlczMC4u&sharetoken=EG3pTHmtlWdskAT36OYf)
 
-When you have collected all student numbers for those who want to attend on campus lectures, just paste all student numbers into the box on the right, indicate the number of lectures for your cours and the number of available seats per lecture, and hit go.
+When you have collected all student numbers for those who want to attend on campus lectures, just paste all student numbers into the box on the left, indicate the number of lectures for your course and the number of available seats per lecture, and hit GO.
 
-A download button will apear here to the right. Just download the excel file and use the student numbers per lecture to inform your students using BCC in outlook.
+A download button will apear to the right. Just download the excel file and use the student numbers per lecture to inform your students using BCC in outlook.
 
 Column {data-width=300}
 -----------------------------------------------------------------------
@@ -63,7 +63,7 @@ valueBox(as.numeric(input$N_seats), icon = "fa-chair", caption = "N Seats", colo
 When ready, an excel file can be downloaded by clicking on the button below.
 
 ```{r}
-shinyjs::hidden(downloadLink('download_table', 'Download table', class="btn btn-default"))
+shinyjs::hidden(downloadLink('download_table', 'Download table', class="btn btn-default download"))
 tableOutput(outputId = 'result')
 students <- eventReactive(input$submit_button, {(input$student_data)})
   
