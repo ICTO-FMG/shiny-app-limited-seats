@@ -29,3 +29,10 @@ background-color: #DCDDDE;
   padding-right: 5px;
   content: "\1f517 ";
 }
+
+.clipboard:before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  padding-right: 5px;
+  content: "\f328 ";
+}

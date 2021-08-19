@@ -26,14 +26,34 @@ numericInput(inputId = 'N_seats', 'Choose the number of available seats per lect
 actionButton(inputId = 'submit_button', 'GO')
 ```
 
+#### Privacy
+
+This tool does not store any privacy information on the user nor the data that is processed.
+
 Column {data-width=700}
 -----------------------------------------------------------------------
 
 ### Instruction
 
-Use the Microsoft forms template below to have students register for on campus lectures prior to the start of your course. Just hit the duplicate button on the top right to use it for yourself.
+Use the Microsoft forms template below to have students register for on campus lectures prior to the start of your course. Just hit the duplicate button on the top right to use it for yourself, and use the template text below.
 
 [MS forms template]( https://forms.office.com/Pages/ShareFormPage.aspx?id=zcrxoIxhA0S5RXb7PWh05WYE6t316eFCnfdGp1GENPBURUowT1U4MFczOEJZWDhINVpKWFBJNlczMC4u&sharetoken=EG3pTHmtlWdskAT36OYf){.special}
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script>
+function copyToClipboard() {
+  var text = "Dear Students,\n\nDue to the COVID restrictions, there are only a limited number of seats available for the lectures. Could you indicate if you are interested in attending the live lectures. If so, please let me know through the form below before [add date here].\n\n[add link to form here] \n\nWe will randomly assign students to the available slots and inform those selected through email."
+  element = $('<textarea>').appendTo('body').val(text).select()
+  document.execCommand('copy')
+  element.remove()
+}
+</script>
+
+
+<a class="clipboard" onclick="copyToClipboard('')">Copy template text to clipboard</a>, then paste to canvas announcement.
+
 
 When you have collected all student numbers for those who want to attend on campus lectures, just paste all student numbers into the box on the left, indicate the number of lectures for your course and the number of available seats per lecture, and hit GO.
 
