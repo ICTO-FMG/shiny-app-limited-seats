@@ -23,11 +23,11 @@ background-color: #DCDDDE;
   content: "\f019 ";
 }
 
-.special:before {
+.special:after {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   padding-right: 5px;
-  content: "\1f517 ";
+  content: " \1f517";
 }
 
 .clipboard:before {
