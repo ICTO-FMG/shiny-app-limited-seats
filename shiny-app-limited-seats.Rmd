@@ -41,7 +41,7 @@ Add all student or use the Microsoft forms template below to have students that 
 
 When you have collected all student numbers for those who want to attend on campus lectures, just paste all student numbers into the box on the left, indicate the number of lectures for your course and the number of available seats per lecture, and hit GO.
 
-A download button will apear to the right. Just download the excel file and use the student numbers per lecture to inform your students using BCC in [outlook on the web](http://outlook.office.com).
+A download button will apear to the right. Just download the excel file and post it on canvas or use the student numbers per lecture to inform your students using BCC in [outlook on the web](http://outlook.office.com).
 
 ### Template text
 
