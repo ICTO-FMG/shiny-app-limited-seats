@@ -35,7 +35,7 @@ Column {data-width=700 .tabset}
 
 ### Instruction
 
-Use the Microsoft forms template below to have students register for on campus lectures prior to the start of your course. Just hit the duplicate button on the top right to use it for yourself, and use the template text from the tab obove.
+Add all student or use the Microsoft forms template below to have students that want to attend, register for on campus lectures prior to the start of your course. Just hit the duplicate button on the top right to use it for yourself, and use the template text from the tab obove.
 
 * <a href="https://forms.office.com/Pages/ShareFormPage.aspx?id=zcrxoIxhA0S5RXb7PWh05WYE6t316eFCnfdGp1GENPBURUowT1U4MFczOEJZWDhINVpKWFBJNlczMC4u&sharetoken=EG3pTHmtlWdskAT36OYf" class="special" target="_blank">MS forms template</a>
 
