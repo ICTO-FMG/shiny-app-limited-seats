@@ -90,6 +90,7 @@ students <- eventReactive(input$submit_button, {(input$student_data)})
     
     N_spots <- input$N_lectures*input$N_seats
     students_vector <- strsplit(students(), "\n")[[1]]
+    students_vector <- unique(students_vector) # remove duplicates from input
     N_students <- length(students_vector)
     
     if(N_students > N_spots) {
@@ -107,10 +108,11 @@ students <- eventReactive(input$submit_button, {(input$student_data)})
       remaining_spots <- N_spots %% N_students # remaining number of spots to sample for
       
       filled_students_last_lecture <- input$N_seats-remaining_spots
-      studnr_already_in_last_lecture <- students_vector[(N_students-filled_students_last_lecture+1):N_students] # laatste 48 uit students_vector weghalen
+      studnr_already_in_last_lecture <- students_vector[(N_students-filled_students_last_lecture+1):N_students] 
+      # collect studentnrs that are already placed in the last lecture
       
       remaining_students_to_sample_from <- students_vector[!students_vector %in% studnr_already_in_last_lecture] 
-      # haal studnr_already_in_last_lecture uit students_vector en doe dan daarmee remaining_sport_sample
+      # remove the already placed students from the last lecture from students_vector, these are the remaining students for remaining_spots_sample
   
       remaining_spots_sample <- sample(remaining_students_to_sample_from, size = remaining_spots, replace = F)
       sampled_students <- c(rep(students_vector, times= N_visits_every_stud), remaining_spots_sample)
