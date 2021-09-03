@@ -107,25 +107,38 @@ students <- eventReactive(input$submit_button, {(input$student_data)})
       N_visits_every_stud <- N_spots %/% N_students # number of times every student may come
       remaining_spots <- N_spots %% N_students # remaining number of spots to sample for
       
-      filled_students_last_lecture <- input$N_seats-remaining_spots
-      studnr_already_in_last_lecture <- students_vector[(N_students-filled_students_last_lecture+1):N_students] 
-      # collect studentnrs that are already placed in the last lecture
-      
-      remaining_students_to_sample_from <- students_vector[!students_vector %in% studnr_already_in_last_lecture] 
-      # remove the already placed students from the last lecture from students_vector, these are the remaining students for remaining_spots_sample
-  
-      remaining_spots_sample <- sample(remaining_students_to_sample_from, size = remaining_spots, replace = F)
-      sampled_students <- c(rep(students_vector, times= N_visits_every_stud), remaining_spots_sample)
-      
-      # while(anyDuplicated(tail(sampled_students, input$N_seats)) != 0) {
-      #   
-      #   remaining_spots_sample <- sample(students_vector, size = remaining_spots, replace = F)
-      #   sampled_students <- c(rep(students_vector, times= N_visits_every_stud), remaining_spots_sample)
-      #   
-      # } # if last lecture contains duplicates, take a new sample
-      
-      df_results <- as.data.frame(matrix(sampled_students, ncol = input$N_lectures, nrow = input$N_seats))
-      
+      if(remaining_spots > input$N_seats){
+        # if the number of remaining spots bigger than N_seats, the pre-last lecture should be filled with a sample based on remaining students
+
+        filled_students_last_lecture_big_remaining <- input$N_seats-(remaining_spots %% input$N_seats) 
+        # number of seats in last filled lecture that ARE filled
+        
+        studnr_already_in_last_lecture_big_remaining <- students_vector[(N_students-filled_students_last_lecture_big_remaining+1):N_students]
+        
+        remaining_students_to_sample_from_big_remaining <- students_vector[!students_vector %in% studnr_already_in_last_lecture_big_remaining]
+        remaining_spots_sample_big_remaining <- sample(remaining_students_to_sample_from_big_remaining, size = (input$N_seats-filled_students_last_lecture_big_remaining), replace = F) 
+        # fill up pre-last lect with a sample of remaining_students_to_sample_from_big_remaining
+        
+        last_lecture_full_sample <- sample(students_vector, size = (input$N_seats), replace = F) # normal sample for last lecture
+        
+        sampled_students <- c(rep(students_vector, times= N_visits_every_stud), remaining_spots_sample_big_remaining, last_lecture_full_sample)
+        # all together
+        
+        df_results <- as.data.frame(matrix(sampled_students, ncol = input$N_lectures, nrow = input$N_seats))
+        
+      } else {
+        filled_students_last_lecture <- input$N_seats-remaining_spots
+        studnr_already_in_last_lecture <- students_vector[(N_students-filled_students_last_lecture+1):N_students]
+        # collect studentnrs that are already placed in the last lecture
+        
+        remaining_students_to_sample_from <- students_vector[!students_vector %in% studnr_already_in_last_lecture]
+        # remove the already placed students from the last lecture from students_vector, these are the remaining students for remaining_spots_sample
+        
+        remaining_spots_sample <- sample(remaining_students_to_sample_from, size = remaining_spots, replace = F)
+        sampled_students <- c(rep(students_vector, times= N_visits_every_stud), remaining_spots_sample)
+        
+        df_results <- as.data.frame(matrix(sampled_students, ncol = input$N_lectures, nrow = input$N_seats))
+      }
     }
     
     colnames(df_results) <- paste0("Lecture ", 1:input$N_lectures)
