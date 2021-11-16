@@ -70,10 +70,7 @@ valueBox(as.numeric(input$N_lectures), icon = "fa-chalkboard-teacher", caption =
 
 ```{r, echo=FALSE}
 renderValueBox({
-valueBox(as.numeric(input$N_seats), 
-         icon    = "fa-couch", 
-         caption = "Seats", 
-         color   = "orange")
+valueBox(as.numeric(input$N_seats), icon    = "fa-couch", caption = "Seats", color   = "orange")
 })
 ```
 
@@ -119,7 +116,8 @@ students <- eventReactive(input$submit_button, {(input$student_data)})
         remaining_spots_sample_big_remaining <- sample(remaining_students_to_sample_from_big_remaining, size = (input$N_seats-filled_students_last_lecture_big_remaining), replace = F) 
         # fill up pre-last lect with a sample of remaining_students_to_sample_from_big_remaining
         
-        last_lecture_full_sample <- sample(students_vector, size = (input$N_seats), replace = F) # normal sample for last lecture
+        remaining_students_vector <- students_vector[!students_vector %in% remaining_spots_sample_big_remaining]
+        last_lecture_full_sample <- sample(remaining_students_vector, size = (remaining_spots - (input$N_seats-filled_students_last_lecture_big_remaining)), replace = F) # sample van alles behalve de studenten die zijn gekozen in remaining_spots_sample_big_remaining
         
         sampled_students <- c(rep(students_vector, times= N_visits_every_stud), remaining_spots_sample_big_remaining, last_lecture_full_sample)
         # all together
@@ -145,8 +143,6 @@ students <- eventReactive(input$submit_button, {(input$student_data)})
     df_results
     
   })
-  
- # output$result <- renderTable({results()})
   
   output$download_table <- downloadHandler(
     filename = function(){paste("lecture-seats-sampler", Sys.Date(), ".xlsx", sep="")},
